@@ -8,12 +8,13 @@ const assertEqual = function(actual, expected) {
 
 assertEqual("Lighthouse Labs", "Bootcamp");
 assertEqual(1, 1);
+
 const eqArrays = function(arr1, arr2) {
   let correct = true;
 
   
   if (arr1.length !== arr2.length) {
-    correct = false;
+    return false
   } 
 
   for (let i = 0; i < arr1.length; i ++) {
@@ -26,14 +27,17 @@ const eqArrays = function(arr1, arr2) {
 
 }
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
+assertEqual(eqArrays([1, 2, 3], [1, 2, '3']), true);
 
-const assertArraysEqual = function(arr1, arr2) {
-
-  if (eqArrays(arr1, arr2)) {
-    console.log(`✅✅✅ Arrays are equal.`)
+const assertArraysEqual = function (arr1, arr2) {
+  if (eqArrays (arr1, arr2)) {
+    console.log (`✅✅✅ Assertion Passed: ${arr1} === ${arr2}`);
   } else {
-    console.log(`🛑🛑🛑 Arrays are not equal.`)
+    console.log (`❌❌❌ Assertion Failed: ${arr1} !== ${arr2}`)
   }
+};
 
-}
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
+assertArraysEqual([4, 5, 6], [4, 5, 6]);
+assertArraysEqual([4, 5, 6], [4, 5, '6']);
+
+
