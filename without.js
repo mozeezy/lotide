@@ -1,3 +1,4 @@
+// assertEqual function
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
     console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
@@ -6,14 +7,17 @@ const assertEqual = function(actual, expected) {
   }
 };
 
+// assertEqual TESTS
 assertEqual("Lighthouse Labs", "Bootcamp");
 assertEqual(1, 1);
+
+// eqArrays function
 const eqArrays = function(arr1, arr2) {
   let correct = true;
 
   
   if (arr1.length !== arr2.length) {
-    correct = false;
+    return false
   } 
 
   for (let i = 0; i < arr1.length; i ++) {
@@ -25,38 +29,39 @@ const eqArrays = function(arr1, arr2) {
   return correct;
 
 }
+// eqArrays TESTS
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
+assertEqual(eqArrays([1, 2, 3], [1, 2, '3']), true);
 
-const assertArraysEqual = function(arr1, arr2) {
-
-  if (eqArrays(arr1, arr2)) {
-    console.log(`✅✅✅ Arrays are equal.`)
+// assertArraysEqual function
+const assertArraysEqual = function (arr1, arr2) {
+  if (eqArrays (arr1, arr2)) {
+    console.log (`✅✅✅ Assertion Passed: ${arr1} === ${arr2}`);
   } else {
-    console.log(`🛑🛑🛑 Arrays are not equal.`)
+    console.log (`❌❌❌ Assertion Failed: ${arr1} !== ${arr2}`)
   }
+};
 
-}
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
+// assertArraysEqual TESTS
+assertArraysEqual([4, 5, 6], [4, 5, 6]);
+assertArraysEqual([4, 5, 6], [4, 5, '6']);
 
-const without = function(originalArr, toRemove) {
-
-  let returnArr = [];
-  
-  for (let i = 0; i < originalArr.length; i ++) {
-    let removeElem = false;
-    for (let j = 0; j < toRemove.length; j++) {
-      if (originalArr[i] === toRemove[j]) {
-        removeElem = true;
-      }
+// without Function
+const without = function (arr1, arr2) {
+  let newArr = [];
+  for (const element of arr1) {
+    if (arr1[element] != arr2[0]) {
+      newArr.push (arr1[element])
     }
-    if (removeElem === false) {
-      returnArr.push(originalArr[i]);
-    }
-  }
+  } return newArr
+};
 
-  return returnArr;
+// without Function TESTS
 
-}
+without([1, 2, 3], [1]) // => [2, 3]
+without(["1", "2", "3"], [1, 2, "3"]) // => ["1", "2"]
 
-console.log(without([1, 2, 3], [1])) 
-console.log(without(["1", "2", "3"], [1, 2, "3"])) 
+const words = ["hello", "world", "lighthouse"];
+without(words, ["lighthouse"]); // no need to capture return value for this test case
+// Make sure the original array was not altered by the without function
+assertArraysEqual(words, ["hello", "world", "lighthouse"]);
