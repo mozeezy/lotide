@@ -13,31 +13,34 @@ const letterPositions = function(sentence) {
   return results;
 };
 
-const eqArrays = function(arr1, arr2) {
-  let correct = true;
+// const eqArrays = function(arr1, arr2) {
+//   let correct = true;
 
   
-  if (arr1.length !== arr2.length) {
-    return false
-  } 
+//   if (arr1.length !== arr2.length) {
+//     return false
+//   } 
 
-  for (let i = 0; i < arr1.length; i ++) {
-    if (arr1[i] !== arr2[i]) {
-      correct = false;
-    }
-  }
+//   for (let i = 0; i < arr1.length; i ++) {
+//     if (arr1[i] !== arr2[i]) {
+//       correct = false;
+//     }
+//   }
 
-  return correct;
+//   return correct;
 
-}
+// }
 
-const assertArraysEqual = function (arr1, arr2) {
-  if (eqArrays (arr1, arr2)) {
-    console.log (`✅✅✅ Assertion Passed: ${arr1} === ${arr2}`);
-  } else {
-    console.log (`❌❌❌ Assertion Failed: ${arr1} !== ${arr2}`)
-  }
-};
+// const assertArraysEqual = function (arr1, arr2) {
+//   if (eqArrays (arr1, arr2)) {
+//     console.log (`✅✅✅ Assertion Passed: ${arr1} === ${arr2}`);
+//   } else {
+//     console.log (`❌❌❌ Assertion Failed: ${arr1} !== ${arr2}`)
+//   }
+// };
 // -------- TEST ------------
+
+const assertArraysEqual = require('./assertArraysEqual');
+
 assertArraysEqual(letterPositions("hello").e, [1]);
 assertArraysEqual(letterPositions("hello").l, [1]);
