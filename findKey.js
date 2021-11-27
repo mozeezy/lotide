@@ -1,23 +1,26 @@
 const findKey = function(object, callback) {
   // for.. in iterates through objects. let key be the iterating variable.
   for (let key in object) {
-    // if 
+    // execute the callback function, which takes on 1 parameter.
     if (callback(object[key])) 
     return key;
   }
 };
 
 // findKey function has 2 parameters: findKey(object, callback)
-//
+
+module.exports = findKey;
 
 
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
+// const assertEqual = function(actual, expected) {
+//   if (actual === expected) {
+//     console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
+//   } else {
+//     console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
+//   }
+// };
+
+const assertEqual = require('./assertEqual');
 
 
 assertEqual(findKey({

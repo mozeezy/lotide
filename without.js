@@ -1,50 +1,52 @@
-// assertEqual function
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
+// // assertEqual function
+// const assertEqual = function(actual, expected) {
+//   if (actual === expected) {
+//     console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
+//   } else {
+//     console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
+//   }
+// };
 
-// assertEqual TESTS
-assertEqual("Lighthouse Labs", "Bootcamp");
-assertEqual(1, 1);
+// // assertEqual TESTS
+// assertEqual("Lighthouse Labs", "Bootcamp");
+// assertEqual(1, 1);
 
-// eqArrays function
-const eqArrays = function(arr1, arr2) {
-  let correct = true;
+// // eqArrays function
+// const eqArrays = function(arr1, arr2) {
+//   let correct = true;
 
   
-  if (arr1.length !== arr2.length) {
-    return false
-  } 
+//   if (arr1.length !== arr2.length) {
+//     return false
+//   } 
 
-  for (let i = 0; i < arr1.length; i ++) {
-    if (arr1[i] !== arr2[i]) {
-      correct = false;
-    }
-  }
+//   for (let i = 0; i < arr1.length; i ++) {
+//     if (arr1[i] !== arr2[i]) {
+//       correct = false;
+//     }
+//   }
 
-  return correct;
+//   return correct;
 
-}
-// eqArrays TESTS
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
-assertEqual(eqArrays([1, 2, 3], [1, 2, '3']), true);
+// }
+// // eqArrays TESTS
+// assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
+// assertEqual(eqArrays([1, 2, 3], [1, 2, '3']), true);
 
-// assertArraysEqual function
-const assertArraysEqual = function (arr1, arr2) {
-  if (eqArrays (arr1, arr2)) {
-    console.log (`✅✅✅ Assertion Passed: ${arr1} === ${arr2}`);
-  } else {
-    console.log (`❌❌❌ Assertion Failed: ${arr1} !== ${arr2}`)
-  }
-};
+// // assertArraysEqual function
+// const assertArraysEqual = function (arr1, arr2) {
+//   if (eqArrays (arr1, arr2)) {
+//     console.log (`✅✅✅ Assertion Passed: ${arr1} === ${arr2}`);
+//   } else {
+//     console.log (`❌❌❌ Assertion Failed: ${arr1} !== ${arr2}`)
+//   }
+// };
 
-// assertArraysEqual TESTS
-assertArraysEqual([4, 5, 6], [4, 5, 6]);
-assertArraysEqual([4, 5, 6], [4, 5, '6']);
+// // assertArraysEqual TESTS
+// assertArraysEqual([4, 5, 6], [4, 5, 6]);
+// assertArraysEqual([4, 5, 6], [4, 5, '6']);
+
+const assertArraysEqual = require('./assertArraysEqual');
 
 // without Function
 const without = function (arr1, arr2) {
@@ -65,3 +67,5 @@ const words = ["hello", "world", "lighthouse"];
 without(words, ["lighthouse"]); // no need to capture return value for this test case
 // Make sure the original array was not altered by the without function
 assertArraysEqual(words, ["hello", "world", "lighthouse"]);
+
+module.exports = without;

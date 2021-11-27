@@ -26,51 +26,58 @@ console.log(results1);
 
 map(['I love', 'coding', 'it is', 'kinda', 'fun'], word => word[0])
 
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
+module.exports = map;
 
-assertEqual("Lighthouse Labs", "Bootcamp");
-assertEqual(1, 1);
 
-const eqArrays = function(arr1, arr2) {
-  let correct = true;
+
+// ------- using assertArrayEqual functions as tests. ----------
+// const assertEqual = function(actual, expected) {
+//   if (actual === expected) {
+//     console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
+//   } else {
+//     console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
+//   }
+// };
+
+// assertEqual("Lighthouse Labs", "Bootcamp");
+// assertEqual(1, 1);
+
+// const eqArrays = function(arr1, arr2) {
+//   let correct = true;
 
   
-  if (arr1.length !== arr2.length) {
-    return false
-  } 
+//   if (arr1.length !== arr2.length) {
+//     return false
+//   } 
 
-  for (let i = 0; i < arr1.length; i ++) {
-    if (arr1[i] !== arr2[i]) {
-      correct = false;
-    }
-  }
+//   for (let i = 0; i < arr1.length; i ++) {
+//     if (arr1[i] !== arr2[i]) {
+//       correct = false;
+//     }
+//   }
 
-  return correct;
+//   return correct;
 
-}
-assertEqual(eqArrays(map(['I love', 'coding', 'it is', 'kinda', 'fun'], word => word[0]), ['I', 'c', 'i', 'k', 'f']), true);
-assertEqual(eqArrays(map(['I love', 'coding', 'it is', 'kinda', 'fun'], word => word[0]), ['I', 'c', 'I', 'k', 'f']), true);
-assertEqual(eqArrays(map(['I love', 'coding', 'it is', 'kinda', 'fun'], word => word[0]), ['I', 'c', 'I', 'k', 'f']), false);
+// }
+// assertEqual(eqArrays(map(['I love', 'coding', 'it is', 'kinda', 'fun'], word => word[0]), ['I', 'c', 'i', 'k', 'f']), true);
+// assertEqual(eqArrays(map(['I love', 'coding', 'it is', 'kinda', 'fun'], word => word[0]), ['I', 'c', 'I', 'k', 'f']), true);
+// assertEqual(eqArrays(map(['I love', 'coding', 'it is', 'kinda', 'fun'], word => word[0]), ['I', 'c', 'I', 'k', 'f']), false);
 
-// assertEqual(parameter 1, parameter 2)
-// parameter 1 = eqArrays (parameter 3, parameter 4) // parameter 2 = true
-// parameter 3 = map(parameter 5, callback) // parameter 4 = arr2
+// // assertEqual(parameter 1, parameter 2)
+// // parameter 1 = eqArrays (parameter 3, parameter 4) // parameter 2 = true
+// // parameter 3 = map(parameter 5, callback) // parameter 4 = arr2
 
-assertEqual(eqArrays([1, 2, 3], [1, 2, '3']), true);
+// assertEqual(eqArrays([1, 2, 3], [1, 2, '3']), true);
 
-const assertArraysEqual = function (arr1, arr2) {
-  if (eqArrays (arr1, arr2)) {
-    console.log (`✅✅✅ Assertion Passed: ${arr1} === ${arr2}`);
-  } else {
-    console.log (`❌❌❌ Assertion Failed: ${arr1} !== ${arr2}`)
-  }
-};
+// const assertArraysEqual = function (arr1, arr2) {
+//   if (eqArrays (arr1, arr2)) {
+//     console.log (`✅✅✅ Assertion Passed: ${arr1} === ${arr2}`);
+//   } else {
+//     console.log (`❌❌❌ Assertion Failed: ${arr1} !== ${arr2}`)
+//   }
+// };
+
+const assertArraysEqual = require('./assertArraysEqual');
 
 assertArraysEqual([4, 5, 6], [4, 5, 6]);
 assertArraysEqual([4, 5, 6], [4, 5, '6']);
