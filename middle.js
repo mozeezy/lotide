@@ -55,18 +55,13 @@ const middle = function (arr) {
     // if the elements of the array is even (%2 === 0). Math.ceil rounds a number up to the next largest integer.
     // return the two middle numbers ['halfway thru the array -1', 'halfway thru the array'].
   } else if (arr.length % 2 === 0) {
-    return [arr [Math.ceil (arr.length/2) -1], arr [Math.ceil (arr.length/2)]];
+    return [arr [Math.ceil(arr.length / 2) - 1], arr [Math.ceil(arr.length / 2)]];
     // else return the middle number if the array is NOT even.
   } else {
-    return [arr[Math.floor (arr.length/2)]];
+    return [arr[Math.floor(arr.length / 2)]];
   }
 };
 
-// ---- TEST ----
-
-// since the assertArraysEqual function takes 2 inputs
-// input 1 is the middle function, input 2 is a random array.
-// the output of input 1 is compared to input 2.
 
 
 
